@@ -12,7 +12,7 @@
             <form method="POST" action="{{ route('recetas.store')}}" novalidate>
                 @csrf
                 <div class="form-group">
-                    <label for="titulo">Titul Receta</label>
+                    <label for="titulo">Titulo Receta</label>
                     <input 
                         type="text"
                         name="titulo"
@@ -20,7 +20,7 @@
                         id="titulo"
                         placeholder="Titulo Receta"
                         value={{ old('titulo') }}
-                    />
+                    >
                 </div>
                 @error('titulo')
                         <span class="invalid-feedback d-block" role="alert">
@@ -32,7 +32,7 @@
                         type="submit"
                         class="btn btn-primary"
                         value="Agregar Receta"
-                    />
+                    >
                 </div>
             </form>
         </div>
