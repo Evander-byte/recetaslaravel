@@ -12,7 +12,7 @@
     <h2 class="text-center mb-5">Crear Nuevas Recetas</h2>
     <div class="row justify-content-center mt-5">
         <div class="col-md-8">
-            <form method="POST" action="{{ route('recetas.store')}}" novalidate>
+            <form method="POST" action="{{ route('recetas.store')}}" novalidate enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
                     <label for="titulo">Titulo Receta:</label>
@@ -72,7 +72,7 @@
                     <label>Ingredientes:</label>
                     <input id="ingredientes" type="hidden" name="ingredientes" value={{ old('ingredientes')}}>
                     <trix-editor 
-                        input="preparacion"
+                        input="ingredientes"
                         class="form-control @error('ingredientes') is-invalid @enderror"
                     ></trix-editor>
                     @error('ingredientes')
@@ -90,7 +90,7 @@
                         class="form-control @error('imagen') is-invalid @enderror"
                         name="imagen"
                     >
-                    @error('ingredientes')
+                    @error('imagen')
                         <span class="invalid-feedback d-block" role="alert">
                             <strong>{{$message}}</strong>
                         </span>
