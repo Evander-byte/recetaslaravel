@@ -83,6 +83,21 @@
                 </div>
 
                 <div class="form-group">
+                    <label for="imagen">Imagen de la Receta</label>
+                    <input 
+                        id="imagen" 
+                        type="file" 
+                        class="form-control @error('imagen') is-invalid @enderror"
+                        name="imagen"
+                    >
+                    @error('ingredientes')
+                        <span class="invalid-feedback d-block" role="alert">
+                            <strong>{{$message}}</strong>
+                        </span>
+                    @enderror
+                </div>
+
+                <div class="form-group">
                     <input
                         type="submit"
                         class="btn btn-primary"
