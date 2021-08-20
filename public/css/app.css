@@ -10956,3 +10956,7 @@ body {
   color: white;
 }
 
+trix-editor {
+  min-height: 20em;
+}
+
