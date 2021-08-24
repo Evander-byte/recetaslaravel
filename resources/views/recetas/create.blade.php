@@ -39,14 +39,28 @@
                         id="categoria"
                     >
                     <option value="">-- Selecciona una Categoria --</option>
-                    @foreach($categorias as $id => $categoria)
+                    @foreach($categorias as $categoria)
                         <option 
-                        value={{ $id }} 
-                        {{ old('categoria') == $id ? 'selected' : '' }}
-                        >{{ $categoria }}</option>
+                        value={{ $categoria->id }} 
+                        {{ old('categoria') == $categoria->id ? 'selected' : '' }}
+                        >{{ $categoria->nombre }}</option>
                     @endforeach
                     </select>
                     @error('categoria')
+                        <span class="invalid-feedback d-block" role="alert">
+                            <strong>{{$message}}</strong>
+                        </span>
+                    @enderror
+                </div>
+
+                <div class="form-group @error('ingredientes') is-invalid @enderror">
+                    <label>Ingredientes:</label>
+                    <input id="ingredientes" type="hidden" name="ingredientes" value={{ old('ingredientes')}}>
+                    <trix-editor 
+                        input="ingredientes"
+                        class="form-control @error('ingredientes') is-invalid @enderror"
+                    ></trix-editor>
+                    @error('ingredientes')
                         <span class="invalid-feedback d-block" role="alert">
                             <strong>{{$message}}</strong>
                         </span>
@@ -62,20 +76,6 @@
                     >
                     </trix-editor>
                     @error('preparacion')
-                        <span class="invalid-feedback d-block" role="alert">
-                            <strong>{{$message}}</strong>
-                        </span>
-                    @enderror
-                </div>
-
-                <div class="form-group @error('ingredientes') is-invalid @enderror">
-                    <label>Ingredientes:</label>
-                    <input id="ingredientes" type="hidden" name="ingredientes" value={{ old('ingredientes')}}>
-                    <trix-editor 
-                        input="ingredientes"
-                        class="form-control @error('ingredientes') is-invalid @enderror"
-                    ></trix-editor>
-                    @error('ingredientes')
                         <span class="invalid-feedback d-block" role="alert">
                             <strong>{{$message}}</strong>
                         </span>

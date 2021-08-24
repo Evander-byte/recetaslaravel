@@ -12,37 +12,37 @@ class CategoriaSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('categoria_receta')->insert([
+        DB::table('categoria_recetas')->insert([
             'nombre' => 'Comida Mexicana',
             'created_at' => date('Y-m-d H:i:s'),
             'created_at' => date('Y-m-d H:i:s'),
         ]);
-        DB::table('categoria_receta')->insert([
+        DB::table('categoria_recetas')->insert([
             'nombre' => 'Comida Argentina',
             'created_at' => date('Y-m-d H:i:s'),
             'created_at' => date('Y-m-d H:i:s'),
         ]);
-        DB::table('categoria_receta')->insert([
+        DB::table('categoria_recetas')->insert([
             'nombre' => 'Comida Italiana',
             'created_at' => date('Y-m-d H:i:s'),
             'created_at' => date('Y-m-d H:i:s'),
         ]);
-        DB::table('categoria_receta')->insert([
+        DB::table('categoria_recetas')->insert([
             'nombre' => 'Postres',
             'created_at' => date('Y-m-d H:i:s'),
             'created_at' => date('Y-m-d H:i:s'),
         ]);
-        DB::table('categoria_receta')->insert([
+        DB::table('categoria_recetas')->insert([
             'nombre' => 'Cortes de Carne',
             'created_at' => date('Y-m-d H:i:s'),
             'created_at' => date('Y-m-d H:i:s'),
         ]);
-        DB::table('categoria_receta')->insert([
+        DB::table('categoria_recetas')->insert([
             'nombre' => 'Desayunos',
             'created_at' => date('Y-m-d H:i:s'),
             'created_at' => date('Y-m-d H:i:s'),
         ]);
-        DB::table('categoria_receta')->insert([
+        DB::table('categoria_recetas')->insert([
             'nombre' => 'Ensaladas',
             'created_at' => date('Y-m-d H:i:s'),
             'created_at' => date('Y-m-d H:i:s'),
