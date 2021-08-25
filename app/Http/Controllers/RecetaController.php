@@ -107,6 +107,8 @@ class RecetaController extends Controller
      */
     public function edit(Receta $receta)
     {
+        // Revisar el policy
+        $this->authorize('view', $receta);
         $categorias = CategoriaReceta::all(['id', 'nombre']);
         return view('recetas.edit', compact('categorias', 'receta'));
     }
@@ -163,6 +165,8 @@ class RecetaController extends Controller
      */
     public function destroy(Receta $receta)
     {
-        //
+        // Ejecutar el policy
+        $this->authorize('delete', $receta);
+        
     }
 }
