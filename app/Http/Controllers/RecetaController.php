@@ -120,6 +120,8 @@ class RecetaController extends Controller
      */
     public function update(Request $request, Receta $receta)
     {
+        // Revisar el policy
+        $this->authorize('update', $receta);
         //Validación
         $data = $request->validate([
             'titulo' => 'required|min:6',
