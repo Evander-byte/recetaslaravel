@@ -21,7 +21,8 @@ window.Vue = require('vue');
 
 // Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
-
+// Permite ignorar etiquetas que parecen Vue pero no lo son
+Vue.config.ignoredElements = ['trix-editor', 'trix-toolbar'];
 Vue.component('fecha-receta', require('./components/FechaReceta.vue').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
