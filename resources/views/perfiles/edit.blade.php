@@ -16,8 +16,12 @@
     <div class="row justify-content-center mt-5">
         <div class="col-md-10 bg-white p-3">
             <form
-            
+                action="{{ route('perfiles.update', ['perfil' => $perfil->id]) }}"
+                method="POST"
+                enctype="multipart/form-data"
             >
+            @csrf
+            @method('PUT')
                 <div class="form-group">
                     <label for="nombre">Nombre</label>
                     <input 
@@ -26,7 +30,7 @@
                         class="form-control @error('nombre') is-invalid @enderror"
                         id="nombre"
                         placeholder="Tu nombre"
-                        value=""
+                        value="{{ $perfil->usuario->name }}"
                     />
 
                     @error('nombre')
@@ -40,10 +44,10 @@
                     <input 
                         type="text"
                         name="url"
-                        class="form-control @error('nombre') is-invalid @enderror"
+                        class="form-control @error('url') is-invalid @enderror"
                         id="url"
                         placeholder="Tu sitio web"
-                        value=""
+                        value="{{ $perfil->usuario->url }}"
                     />
 
                     @error('url')
@@ -55,7 +59,7 @@
                 
                 <div class="form-group">
                     <label>Biografia:</label>
-                    <input id="biografia" type="hidden" name="biografia" value="">
+                    <input id="biografia" type="hidden" name="biografia" value="{{ $perfil->biografia }}">
                     <trix-editor 
                         input="biografia"
                         class="form-control @error('biografia') is-invalid @enderror"
@@ -76,11 +80,10 @@
                         class="form-control @error('imagen') is-invalid @enderror"
                         name="imagen"
                     >
-
                     @if($perfil->imagen)
                         <div class="mt-4">
                             <p>Imagen Actual:</p>
-                            <img src="/storage/{{ $receta->imagen }}" alt="Imagen de la Receta" style="width: 300px">
+                            <img src="/storage/{{ $perfil->imagen }}" alt="Imagen de la Receta" style="width: 300px">
                         </div>
                         @error('imagen')
                             <span class="invalid-feedback d-block" role="alert">
@@ -88,6 +91,14 @@
                             </span>
                         @enderror
                     @endif
+                </div>
+
+                <div class="form-group">
+                    <input
+                        type="submit"
+                        class="btn btn-primary"
+                        value="Actualizar Perfil"
+                    >
                 </div>
             </form>
         </div>
