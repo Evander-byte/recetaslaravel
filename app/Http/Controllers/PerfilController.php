@@ -8,35 +8,10 @@ use Intervention\Image\Facades\Image;
 
 class PerfilController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function __construct()
     {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+        $this->middleware('auth', ['except' => 'show']);
     }
 
     /**
@@ -58,7 +33,8 @@ class PerfilController extends Controller
      */
     public function edit(Perfil $perfil)
     {
-        //
+        //  Ejecutar el policy
+        $this->authorize('view', $perfil);
         return view('perfiles.edit', compact('perfil'));
     }
 
@@ -71,6 +47,8 @@ class PerfilController extends Controller
      */
     public function update(Request $request, Perfil $perfil)
     {
+        // Ejecutar el polilcy
+        $this->authorize('update', $perfil);
 
         // Validar la entrada de los datos
         $data = request()->validate([
@@ -109,16 +87,5 @@ class PerfilController extends Controller
 
         // Redireccionar
         return redirect()->action('RecetaController@index');
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Perfil  $perfil
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Perfil $perfil)
-    {
-        //
     }
 }
