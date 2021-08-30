@@ -30,10 +30,10 @@ Route::get('/', function () {
 // Lo de abajo cambia la vida de las personas
 Route::resource('recetas', 'RecetaController');
 
-// Route::get('/perfiles/{perfil}', 'PerfilController@show')->name('perfiles.show');
-// Route::get('/perfiles/{perfil}/edit', 'PerfilController@edit')->name('perfiles.edit');
-// Route::put('/perfiles/{perfil}/', 'PerfilController@update')->name('perfiles.update');
-Route::resource('perfiles', 'PerfilController');
+Route::get('/perfiles/{perfil}', 'PerfilController@show')->name('perfiles.show');
+Route::get('/perfiles/{perfil}/edit', 'PerfilController@edit')->name('perfiles.edit');
+Route::put('/perfiles/{perfil}/', 'PerfilController@update')->name('perfiles.update');
+// Route::resource('perfiles', 'PerfilController');
 
 Auth::routes();
 

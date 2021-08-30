@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Perfil;
+use App\Receta;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
 
@@ -15,6 +16,36 @@ class PerfilController extends Controller
     }
 
     /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+
+    }
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+
+    }
+
+        /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+
+    }
+
+    /**
      * Display the specified resource.
      *
      * @param  \App\Perfil  $perfil
@@ -22,7 +53,9 @@ class PerfilController extends Controller
      */
     public function show(Perfil $perfil)
     {
-        return view('perfiles.show', compact('perfil'));
+        // Obtener las recetas con paginación
+        $recetas = Receta::where('user_id', $perfil->user_id)->paginate(6);
+        return view('perfiles.show', compact('perfil', 'recetas'));
     }
 
     /**
@@ -87,5 +120,17 @@ class PerfilController extends Controller
 
         // Redireccionar
         return redirect()->action('RecetaController@index');
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Perfil  $perfil
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(Perfil $perfil)
+    {
+
+        
     }
 }

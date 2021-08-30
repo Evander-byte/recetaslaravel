@@ -24,7 +24,9 @@ class RecetaController extends Controller
     public function index()
     {
         // Usamos el helper Auth::user en el blade para obtener el id del usuario
-        $recetas = auth()->user()->recetas;
+        // $recetas = auth()->user()->recetas;
+        // Recetas con paginación;
+        $recetas = Receta::where('user_id', auth()->user()->id)->paginate(3);
         return view('recetas.index', compact('recetas'));
     }
 
