@@ -10958,6 +10958,7 @@ body {
 
 trix-editor {
   min-height: 20em;
+  height: auto !important;
 }
 
 .icono {
