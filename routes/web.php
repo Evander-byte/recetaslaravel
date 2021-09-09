@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LikesController;
 use App\Http\Controllers\RecetaController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -34,6 +35,9 @@ Route::get('/perfiles/{perfil}', 'PerfilController@show')->name('perfiles.show')
 Route::get('/perfiles/{perfil}/edit', 'PerfilController@edit')->name('perfiles.edit');
 Route::put('/perfiles/{perfil}/', 'PerfilController@update')->name('perfiles.update');
 // Route::resource('perfiles', 'PerfilController');
+
+// Almacena los likes de la receta
+Route::post('/recetas/{receta}', 'LikesController@update')->name('like.update');
 
 Auth::routes();
 

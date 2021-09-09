@@ -36,7 +36,13 @@
                 {!! $receta->preparacion !!}
             </div>
 
-            <like-button></like-button>
+            <div class="justify-content-center row text-center">
+                <like-button
+                    receta-id="{{ $receta->id }}"
+                    like="{{ $like }}"
+                    likes="{{ $likes }}"
+                ></like-button>
+            </div>
         </div>
     </article>
 @endsection
