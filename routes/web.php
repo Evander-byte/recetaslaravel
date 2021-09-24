@@ -30,7 +30,11 @@ Route::get('/', 'InicioController@index')->name('inicio.index');
 // Lo de abajo cambia la vida de las personas
 Route::resource('recetas', 'RecetaController');
 
+// Mostrar por categoria seleccionada
 Route::get('/categoria/{categoriaReceta}', 'CategoriasController@show')->name('categorias.show');
+
+// Buscador de Recetas
+Route::get('/buscar', 'RecetaController@search')->name('receta.search');
 
 Route::get('/perfiles/{perfil}', 'PerfilController@show')->name('perfiles.show');
 Route::get('/perfiles/{perfil}/edit', 'PerfilController@edit')->name('perfiles.edit');

@@ -98,6 +98,7 @@
                 </div>
             </div>
         </nav>
+        @yield('hero')
 
         <div class="container">
             <div class="row">
