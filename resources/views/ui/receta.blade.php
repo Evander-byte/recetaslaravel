@@ -16,7 +16,7 @@
                 </p>
             </div>
             <p class="card-text">
-                {{ Str::words(strip_tags($nueva->preparacion), 20, ' ...') }}
+                {{ Str::words(strip_tags($receta->preparacion), 20, ' ...') }}
             </p>
             <a 
                 href="{{ route('recetas.show', ['receta' => $receta->id]) }}"

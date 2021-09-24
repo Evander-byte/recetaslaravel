@@ -14,7 +14,7 @@ class InicioController extends Controller
     {
         // Mostrar las recetas por votos
         // $votadas = Receta::has('likes', '>', 1)->get(); ESTATICO
-        $votadas = Receta::withCount('likes')->ordeBy('likes_count', 'desc')->take(3)->get(); // DINAMICO
+        $votadas = Receta::withCount('likes')->orderBy('likes_count', 'desc')->take(3)->get(); // DINAMICO
         // Obtener las recetas más nuevas
         $nuevas = Receta::latest()->take(6)->get();
 

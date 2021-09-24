@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoriasController;
 use App\Http\Controllers\LikesController;
 use App\Http\Controllers\RecetaController;
 use Illuminate\Support\Facades\Auth;
@@ -28,6 +29,8 @@ Route::get('/', 'InicioController@index')->name('inicio.index');
 // Lo de arriba es basura
 // Lo de abajo cambia la vida de las personas
 Route::resource('recetas', 'RecetaController');
+
+Route::get('/categoria/{categoriaReceta}', 'CategoriasController@show')->name('categorias.show');
 
 Route::get('/perfiles/{perfil}', 'PerfilController@show')->name('perfiles.show');
 Route::get('/perfiles/{perfil}/edit', 'PerfilController@edit')->name('perfiles.edit');

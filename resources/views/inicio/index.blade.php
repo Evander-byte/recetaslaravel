@@ -22,6 +22,15 @@
             @endforeach
         </div>
     </div>
+    <div class="container">
+        <h2 class="titulo-categoria text-uppercase mt-5 mb-4">Recetas más votadas</h2>
+        <div class="row">
+            @foreach($votadas as $receta)
+                @include('ui.receta')
+            @endforeach
+        </div>
+    </div>
+
     @foreach($recetas as $key => $grupo)
         <div class="container">
             <h2 class="titulo-categoria text-uppercase mt-5 mb-4">{{ str_replace('-', ' ', $key) }}</h2>
